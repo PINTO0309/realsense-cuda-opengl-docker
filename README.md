@@ -151,7 +151,9 @@ or
 ```bash
 $ git clone https://github.com/PINTO0309/realsense-cuda-opengl-docker.git \
 && cd realsense-cuda-opengl-docker \
-&& docker build -t pinto0309/realsense-cuda-opengl-docker:latest.cuda -f Dockerfile.cudarealsense .
+&& docker build \
+-t pinto0309/realsense-cuda-opengl-docker:latest.cuda \
+-f Dockerfile.cudarealsense .
 ```
 ```bash
 $ xhost +local: && \
