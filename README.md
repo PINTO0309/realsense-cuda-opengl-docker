@@ -27,7 +27,7 @@ docker run --gpus all -it --rm \
 -e XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR \
 -e DISPLAY=$DISPLAY \
 --privileged \
-realsense-cuda-opengl-docker:latest
+ghcr.io/pinto0309/realsense-cuda-opengl-docker:latest
 ```
 
 ## 4. Run **`realsense-viewer`**
