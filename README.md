@@ -70,6 +70,8 @@ glxgears
 ![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/33194443/152633773-a25722fa-fd7d-4eb5-b23d-bf764cae46e9.gif)
 
 ## 7. Running from within WSL2
+[Note] OpenGL will not work properly.
+
 1. Perform the following initial settings.  
   [WSL2 USB Camera Jan 17, 2022 Edition](https://zenn.dev/pinto0309/articles/7c7ce81bea8b6c)
 2. Start WSL2 (Windows Terminal).
