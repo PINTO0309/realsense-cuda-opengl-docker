@@ -4,6 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 ARG USERNAME=user
 ARG WKDIR=/home/${USERNAME}
+ARG TAG=v2.50.0
 WORKDIR ${WKDIR}
 
 RUN apt-get update \
@@ -26,7 +27,7 @@ RUN apt-get update \
     && apt clean \
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone --depth 1 -b v2.50.0 https://github.com/IntelRealSense/librealsense.git \
+RUN git clone --depth 1 -b ${TAG} https://github.com/IntelRealSense/librealsense.git \
     && cd librealsense \
     && mkdir build \
     && cd build \
