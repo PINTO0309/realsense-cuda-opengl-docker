@@ -88,7 +88,7 @@ BUSID DEVICE                                                     STATTE
 
 > usbipd wsl attach --busid 1-1
 ```
-4. docker run.
+4. docker run. (WSL2 Terminal)
 ```bash
 $ docker pull pinto0309/realsense-cuda-opengl-docker:latest
 
