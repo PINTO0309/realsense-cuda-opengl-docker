@@ -10,7 +10,7 @@ docker build -t realsense-cuda-opengl-docker:latest .
 
 ## 2. docker pull
 ```bash
-docker pull ghcr.io/pinto0309/realsense-cuda-opengl-docker:latest
+docker pinto0309/realsense-cuda-opengl-docker:latest
 ```
 
 ## 3. docker run
@@ -29,7 +29,7 @@ docker run --gpus all -it --rm \
 -e XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR \
 -e DISPLAY=$DISPLAY \
 --privileged \
-ghcr.io/pinto0309/realsense-cuda-opengl-docker:latest
+pinto0309/realsense-cuda-opengl-docker:latest
 ```
 
 ## 4. Run **`realsense-viewer`**
@@ -68,3 +68,45 @@ Sat Feb  5 07:49:13 2022
 glxgears
 ```
 ![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/33194443/152633773-a25722fa-fd7d-4eb5-b23d-bf764cae46e9.gif)
+
+## 7. Running from within WSL2
+1. Perform the following initial settings.  
+  [WSL2 USB Camera Jan 17, 2022 Edition](https://zenn.dev/pinto0309/articles/7c7ce81bea8b6c)
+2. Start WSL2 (Windows Terminal).
+```powershell
+> wsl --list
+Ubuntu-20.04 (default)
+
+> wsl -d Ubuntu-20.04
+```
+3. USB attach. (Windows Terminal)
+```powershell
+> usbipd wsl list
+
+BUSID DEVICE                                                     STATTE
+1-1 Intel(R) RealSense(TM) Depth Camera 435 with RGB Module D... Not attached
+
+> usbipd wsl attach --busid 1-1
+```
+4. docker run.
+```bash
+$ docker pull pinto0309/realsense-cuda-opengl-docker:latest
+
+$ xhost +local: && \
+docker run --gpus all -it --rm \
+-v `pwd`:/home/user/workdir \
+-v /tmp/.X11-unix/:/tmp/.X11-unix:rw \
+--device /dev/video0:/dev/video0:mwr \
+--device /dev/video1:/dev/video1:mwr \
+--device /dev/video2:/dev/video2:mwr \
+--device /dev/video3:/dev/video3:mwr \
+--device /dev/video4:/dev/video4:mwr \
+--device /dev/video5:/dev/video5:mwr \
+--net=host \
+-e XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR \
+-e DISPLAY=$DISPLAY \
+--privileged \
+pinto0309/realsense-cuda-opengl-docker:latest
+
+$ sudo chmod 777 /dev/video*
+```
