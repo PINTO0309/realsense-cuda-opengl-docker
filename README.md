@@ -3,19 +3,19 @@ RealSense execution environment built on a Docker container on Ubuntu 20.04. NIV
 
 ## 1. docker build
 ```bash
-git clone https://github.com/PINTO0309/realsense-cuda-opengl-docker.git
-cd realsense-cuda-opengl-docker
-docker build -t realsense-cuda-opengl-docker:latest .
+$ git clone https://github.com/PINTO0309/realsense-cuda-opengl-docker.git \
+&& cd realsense-cuda-opengl-docker \
+&& docker build -t realsense-cuda-opengl-docker:latest .
 ```
 
 ## 2. docker pull
 ```bash
-docker pinto0309/realsense-cuda-opengl-docker:latest
+$ docker pinto0309/realsense-cuda-opengl-docker:latest
 ```
 
 ## 3. docker run
 ```bash
-xhost +local: && \
+$ xhost +local: && \
 docker run --gpus all -it --rm \
 -v `pwd`:/home/user/workdir \
 -v /tmp/.X11-unix/:/tmp/.X11-unix:rw \
@@ -34,13 +34,13 @@ pinto0309/realsense-cuda-opengl-docker:latest
 
 ## 4. Run **`realsense-viewer`**
 ```bash
-realsense-viewer
+$ realsense-viewer
 ```
 ![image](https://user-images.githubusercontent.com/33194443/152633195-2fc6e4bd-058e-4ae0-9a9e-8d223f3d96ba.png)
 
 ## 5. Run **`nvidia-smi`**
 ```
-nvidia-smi
+$ nvidia-smi
 
 Sat Feb  5 07:49:13 2022       
 +-----------------------------------------------------------------------------+
@@ -65,7 +65,7 @@ Sat Feb  5 07:49:13 2022
 
 ## 6. Run **`glxgears`**
 ```bash
-glxgears
+$ glxgears
 ```
 ![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/33194443/152633773-a25722fa-fd7d-4eb5-b23d-bf764cae46e9.gif)
 
