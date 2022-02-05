@@ -5,12 +5,12 @@ RealSense execution environment built on a Docker container on Ubuntu 20.04. NIV
 ```bash
 $ git clone https://github.com/PINTO0309/realsense-cuda-opengl-docker.git \
 && cd realsense-cuda-opengl-docker \
-&& docker build -t realsense-cuda-opengl-docker:latest .
+&& docker build -t pinto0309/realsense-cuda-opengl-docker:latest .
 ```
 
 ## 2. docker pull
 ```bash
-$ docker pinto0309/realsense-cuda-opengl-docker:latest
+$ docker pull pinto0309/realsense-cuda-opengl-docker:latest
 ```
 
 ## 3. docker run
@@ -141,4 +141,32 @@ Sat Feb  5 07:49:13 2022
 |        ID   ID                                                   Usage      |
 |=============================================================================|
 +-----------------------------------------------------------------------------+
+```
+
+## 8. CUDA assisted librealsense container
+```bash
+$ docker pull pinto0309/realsense-cuda-opengl-docker:latest.cuda
+```
+or
+```bash
+$ git clone https://github.com/PINTO0309/realsense-cuda-opengl-docker.git \
+&& cd realsense-cuda-opengl-docker \
+&& docker build -t pinto0309/realsense-cuda-opengl-docker:latest.cuda -f Dockerfile.cudarealsense .
+```
+```bash
+$ xhost +local: && \
+docker run --gpus all -it --rm \
+-v `pwd`:/home/user/workdir \
+-v /tmp/.X11-unix/:/tmp/.X11-unix:rw \
+--device /dev/video0:/dev/video0:mwr \
+--device /dev/video1:/dev/video1:mwr \
+--device /dev/video2:/dev/video2:mwr \
+--device /dev/video3:/dev/video3:mwr \
+--device /dev/video4:/dev/video4:mwr \
+--device /dev/video5:/dev/video5:mwr \
+--net=host \
+-e XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR \
+-e DISPLAY=$DISPLAY \
+--privileged \
+pinto0309/realsense-cuda-opengl-docker:latest.cuda
 ```
