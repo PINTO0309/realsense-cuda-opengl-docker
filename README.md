@@ -85,7 +85,7 @@ Ubuntu-20.04 (default)
 ```powershell
 > usbipd wsl list
 
-BUSID DEVICE                                                     STATTE
+BUSID DEVICE                                                       STATTE
 1-1   Intel(R) RealSense(TM) Depth Camera 435 with RGB Module D... Not attached
 
 > usbipd wsl attach --busid 1-1
