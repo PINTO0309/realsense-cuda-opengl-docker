@@ -32,6 +32,7 @@ RUN apt-get update \
         librealsense2-dkms librealsense2-utils \
         librealsense2-dev librealsense2-dbg \
         librealsense2-gl librealsense2-gl-dev librealsense2-gl-dbg \
+        mesa-utils \
     && pip install pip --upgrade \
     && sed -i 's/# set linenumbers/set linenumbers/g' /etc/nanorc \
     && apt clean \
