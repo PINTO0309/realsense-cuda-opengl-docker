@@ -110,5 +110,13 @@ docker run --gpus all -it --rm \
 --privileged \
 pinto0309/realsense-cuda-opengl-docker:latest
 
+$ ls -l /dev/video*
+xxxxxx 1 xxxx xxxx xx,xx,xx xx:xx /dev/video0
+xxxxxx 1 xxxx xxxx xx,xx,xx xx:xx /dev/video1
+xxxxxx 1 xxxx xxxx xx,xx,xx xx:xx /dev/video2
+xxxxxx 1 xxxx xxxx xx,xx,xx xx:xx /dev/video3
+xxxxxx 1 xxxx xxxx xx,xx,xx xx:xx /dev/video4
+xxxxxx 1 xxxx xxxx xx,xx,xx xx:xx /dev/video5
+
 $ sudo chmod 777 /dev/video*
 ```
