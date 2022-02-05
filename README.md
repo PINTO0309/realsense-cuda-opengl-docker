@@ -1,4 +1,6 @@
 # realsense-cuda-opengl-docker
+RealSense execution environment built on a Docker container on Ubuntu 20.04. NIVIDA GPU and OpenGL capable. CUADA 11.4.
+
 ## 1. docker build
 ```bash
 git clone https://github.com/PINTO0309/realsense-cuda-opengl-docker.git
