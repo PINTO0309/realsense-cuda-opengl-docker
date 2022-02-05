@@ -37,7 +37,7 @@ realsense-viewer
 ![image](https://user-images.githubusercontent.com/33194443/152633195-2fc6e4bd-058e-4ae0-9a9e-8d223f3d96ba.png)
 
 ## 5. Run **`nvidia-smi`**
-```bash
+```
 nvidia-smi
 
 Sat Feb  5 07:49:13 2022       
