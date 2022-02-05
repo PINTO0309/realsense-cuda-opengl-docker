@@ -2,7 +2,8 @@ FROM nvidia/cudagl:11.4.2-devel-ubuntu20.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-ARG WKDIR=/home/user
+ARG USERNAME=user
+ARG WKDIR=/home/${USERNAME}
 WORKDIR ${WKDIR}
 
 RUN apt-get update \
@@ -38,7 +39,6 @@ RUN apt-get update \
     && apt clean \
     && rm -rf /var/lib/apt/lists/*
 
-ENV USERNAME=user
 RUN echo "root:root" | chpasswd \
     && adduser --disabled-password --gecos "" "${USERNAME}" \
     && adduser ${USERNAME} video \
